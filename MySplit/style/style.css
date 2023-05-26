@@ -31,7 +31,7 @@ h1 {
     width: 100%;
 }
 
-.options {
+#sign_in {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,7 +55,7 @@ h1 {
     
     max-width: 300px;
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 }
