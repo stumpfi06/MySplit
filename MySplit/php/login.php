@@ -11,8 +11,24 @@
             if ($password === 'admin' && $name=='admin@admin.com') {
                 header('Location: ../html/admin.html');
             } 
+            else{
+                echo"Falsches Passwort und Benutzername <br>";
+                
+                $backLink = generateBackLink();
+                echo '<a href="' . $backLink . '">Zurück zur Startseite</a>';
+            }
         } 
     }
-    
+
+    function generateBackLink() {
+        $backLink = '';
+        
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $backLink = $_SERVER['HTTP_REFERER'];
+        }
+        
+        return $backLink;
+    }
+
 
 ?>
