@@ -9,7 +9,7 @@
 
             
             if ($password === 'admin' && $name=='admin@admin.com') {
-                echo "Willkommen, $name!";
+                header('Location: ../html/admin.html');
             } 
         } 
     }
