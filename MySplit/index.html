@@ -26,7 +26,11 @@
         <h1>MySplit</h1>
         <div id="sign_in">
             <a class="button" id="button-log-in" name="button-log-in" onclick="sign_in()">Anmelden</a>
+<<<<<<< HEAD
             <a class="button" id="new-projekt" name="new-projekt" >Neues Projekt</a>
+=======
+            <a class="button" id="new-projekt" name="new-projekt" onclick="neuesProjekt()">Neues Projekt</a>
+>>>>>>> 32b1d8cefd5371ba63868cc04c8e71efdbdadcc7
         </div>
         <div id="anmelden">
             <form method="POST" action="php/login.php">
@@ -38,10 +42,26 @@
                 </div>
                 <div>
                     <input type="submit" value="Anmelden">
+                    <a class="button" id="button-back" name="button-back" onclick="cancel()">Cancel</a>
+                </div>
+            </form>
+            
+        </div>
+    
+        <div id="projekt">
+            <form method="POST" action="php/admin.php">
+              
+                <div>
+                    <input type="email" id="benutzername" name="benutzername" placeholder="E-Mail" required>
+                </div>
+                <div>
+                    <input type="submit" value="Hinzufügen">
+                    <a class="button" id="button-back" name="button-back" onclick="cancel()">Cancel</a>
                 </div>
             </form>
         </div>
     </div>
-    
+
+   
 </body>
 </html>

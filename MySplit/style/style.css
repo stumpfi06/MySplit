@@ -63,9 +63,9 @@ h1 {
 
 .button:hover {
     background-color: #006bd2;
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
-    
+
 #anmelden {
     max-width: 300px;
     width: 100%;
@@ -103,8 +103,24 @@ input[type="submit"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 0px;
+    transition: transform 0.3s;
+    float: left;
 }
 
 input[type="submit"]:hover {
     background-color: #006bd2;
+    transform: scale(1.1);
+}
+#button-back{
+    display:flex;
+    float: right;
+    
+  margin-left: 5px;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color:#ff369c;
+}
+#projekt{
+    display:none;
 }
