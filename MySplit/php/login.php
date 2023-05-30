@@ -18,6 +18,9 @@
                 echo '<a href="' . $backLink . '">Zurück zur Startseite</a>';
             }
         } 
+        if(isset($_POST['new-projekt'])){
+            header('Location: ../html/neuesProjekt.html');
+        }
     }
 
     function generateBackLink() {

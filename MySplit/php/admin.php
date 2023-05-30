@@ -13,5 +13,5 @@ function generatePassword() {
 }
 
 echo generatePassword();
-echo "hallo";
+
 ?>
