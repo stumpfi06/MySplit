@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JavaScript -->
     <script src="js/script.js"></script>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startseite</title>
@@ -20,6 +24,10 @@
     <div id="startseite" data-aos="fade-up" data-aos-duration="1500" >
         <img src="images/logo.jpeg" alt="Logo" class="logo">
         <h1>MySplit</h1>
+        <div id="sign_in">
+            <a class="button" id="button-log-in" onclick="sign_in()">Anmelden</a>
+            <a class="button" id="new-projekt" onclick="">Neues Projekt</a>
+        </div>
         <div id="anmelden">
             <form method="POST" action="php/login.php">
                 <div class="form-group">
@@ -33,10 +41,6 @@
                 </div>
             </form>
         </div>
-        <div id="sign_in">
-            <a class="button" onclick="sign_in()">sign in</a>
-        </div>
-        
     </div>
     
 </body>
