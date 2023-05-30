@@ -26,7 +26,7 @@
         <h1>MySplit</h1>
         <div id="sign_in">
             <a class="button" id="button-log-in" name="button-log-in" onclick="sign_in()">Anmelden</a>
-            <a class="button" id="new-projekt" name="new-projekt" onclick="neuesProjekt()">Neues Projekt</a>
+            <a class="button" id="new-projekt" name="new-projekt" href="php/neuesProjekt.php">Neues Projekt</a>
         </div>
         <div id="anmelden">
             <form method="POST" action="php/login.php">
@@ -41,28 +41,7 @@
                     <a class="button" id="button-back" name="button-back" onclick="cancel()">Cancel</a>
                 </div>
             </form>
-            
-        </div>
-    
-        <div id="projekt">
-            <form method="POST" action="php/benutzer.php" id="form-neues-projekt">
-              
-                <div>
-                    <input type="email" id="email" name="email" placeholder="E-Mail" required>
-                </div>
-                <div>
-                    <input type="submit" value="Hinzufügen">
-                    <a class="button" id="button-back" name="button-back" onclick="cancel()">Cancel</a>
-                </div>
-            </form>
-        </div>
+        </div>  
     </div>
-
-    <div class="startseite" id="projekt-tabelle">
-        <h1 id="h1-projekt-tabelle">Benutzer</h1>
-       
-    </div>
-
-   
 </body>
 </html>
