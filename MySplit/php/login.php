@@ -12,14 +12,17 @@
                 header('Location: ../html/admin.html');
             } 
             else{
-                echo"Falsches Passwort und Benutzername <br>";
+               /* echo"Falsches Passwort und Benutzername <br>";
                 
                 $backLink = generateBackLink();
-                echo '<a href="' . $backLink . '">Zurück zur Startseite</a>';
+                echo '<a href="' . $backLink . '">Zurück zur Startseite</a>';*/
+                
             }
         } 
-        if(isset($_POST['new-projekt'])){
-            header('Location: ../html/neuesProjekt.html');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new-projekt'])) {
+            // Der Button wurde gedrückt, hier kannst du deinen Code ausführen
+            // Füge hier den Code hinzu, den du ausführen möchtest, wenn der Button gedrückt wird
+            echo "Das PHP-Programm wird ausgeführt!";
         }
     }
 
@@ -32,6 +35,9 @@
         
         return $backLink;
     }
+
+    require_once('admin.php');
+    
 
 
 ?>
