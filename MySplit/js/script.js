@@ -5,9 +5,15 @@ function sign_in() {
     logInDiv.style.display = "flex";
 }
 
-function log_in() {
+function cancel() {
     var signInDiv = document.getElementById("sign_in");
     signInDiv.style.display = "flex";
     var logInDiv = document.getElementById("anmelden");
     logInDiv.style.display = "none";
 }
+function neuesProjekt(){
+    var neuesProjektDiv = document.getElementById("sign_in");
+    neuesProjektDiv.style.display = "none";
+    var projektDiv = document.getElementById("projekt");
+    projektDiv.style.display = "flex";
+}   
