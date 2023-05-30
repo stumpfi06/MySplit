@@ -21,16 +21,12 @@
         AOS.init();
     </script>
       
-    <div id="startseite" data-aos="fade-up" data-aos-duration="1500" >
+    <div class="startseite" data-aos="fade-up" data-aos-duration="1500" >
         <img src="images/logo.jpeg" alt="Logo" class="logo">
         <h1>MySplit</h1>
         <div id="sign_in">
             <a class="button" id="button-log-in" name="button-log-in" onclick="sign_in()">Anmelden</a>
-<<<<<<< HEAD
-            <a class="button" id="new-projekt" name="new-projekt" >Neues Projekt</a>
-=======
             <a class="button" id="new-projekt" name="new-projekt" onclick="neuesProjekt()">Neues Projekt</a>
->>>>>>> 32b1d8cefd5371ba63868cc04c8e71efdbdadcc7
         </div>
         <div id="anmelden">
             <form method="POST" action="php/login.php">
@@ -49,10 +45,10 @@
         </div>
     
         <div id="projekt">
-            <form method="POST" action="php/admin.php">
+            <form method="POST" action="php/benutzer.php" id="form-neues-projekt">
               
                 <div>
-                    <input type="email" id="benutzername" name="benutzername" placeholder="E-Mail" required>
+                    <input type="email" id="email" name="email" placeholder="E-Mail" required>
                 </div>
                 <div>
                     <input type="submit" value="Hinzufügen">
@@ -60,6 +56,13 @@
                 </div>
             </form>
         </div>
+    </div>
+
+    <div class="startseite" id="projekt-tabelle">
+        <h1>Benutzer</h1>
+        <table>
+            
+        </table>
     </div>
 
    
