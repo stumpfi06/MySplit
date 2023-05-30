@@ -24,9 +24,13 @@
     <div class="startseite" data-aos="fade-up" data-aos-duration="1500" >
         <img src="../images/logo.jpeg" alt="Logo" class="logo">
         <h1>MySplit</h1>
-        
+     
+        <form method="POST" >
+            <input type="text" name="email" placeholder="E-Mail" class="projektname">
+            <input type="submit" name="hinzufügen" value="Hinzufügen" class="submit">
+        </form>
     </div>
-
+    
 
 <?php
 
