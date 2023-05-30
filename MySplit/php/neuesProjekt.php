@@ -97,13 +97,30 @@ if (isset($_POST['hinzufügen'])) {
                 return $benutzerArray;
             }
             
-            foreach ($benutzerArray as $benutzername => $passwort): ?>
+           // foreach ($benutzerArray as $benutzername => $passwort):
+            if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+                $inhalt = $_POST['ersteller-email'].":".$_POST['ersteller-passwort'];
+                $inhalt2="";
+
+                $pfad = "../daten/".$_POST['projektname']."Benutzernamen.txt";
+                $pfad2 = "../daten/".$_POST['projektname'].".txt";
+                
+                if (file_put_contents($pfad, $inhalt) !== false  && file_put_contents($pfad2,$inhalt2) !== false ) {
+                    echo "Die Textdatei wurde erfolgreich erstellt.";
+                } else {
+                    echo "Es ist ein Fehler beim Erstellen der Textdatei aufgetreten.";
+                }
+                
+            }
+           ?>
+
+
                 
             <tr>
                 <td class="rechtsgerueckt"><?php echo $benutzername; ?></td>
                 
             </tr>
-            <?php endforeach; ?>
+          
         </table>
     </div>
 </body>
