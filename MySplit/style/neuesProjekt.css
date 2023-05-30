@@ -13,8 +13,29 @@ h1 {
     color: #333;
     margin-top: -10px;
 }
+#new-projekt{
+    margin-left: 15px;
+    padding-left: 7px;
+    padding-right: 7px;
+    background-color: #ff369c;
+    
+}
+#new-projekt:hover{
+    background-color: #006bd2;
+    
+}
+#button-log-in{
+    margin-left: 25px;
+}
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0px; /* Adjust the margin-bottom as desired */
+}
 
-#create-project {
+.startseite {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -23,14 +44,40 @@ h1 {
     width: 100%;
 }
 
-#email-form {
+#buttons-container {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #f4a246;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.button:hover {
+    background-color: #006bd2;
+    transform: scale(1.1);
+}
+
+#anmelden {
+    max-width: 300px;
+    width: 100%;
+    display: none;
     flex-direction: column;
     align-items: center;
 }
 
-.form-group {
-    margin-bottom: 10px;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 label {
@@ -40,7 +87,8 @@ label {
     text-align: center;
 }
 
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -55,9 +103,21 @@ input[type="submit"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 0px;
+    transition: transform 0.3s;
+    float: left;
 }
 
 input[type="submit"]:hover {
     background-color: #006bd2;
-    transform: scale(1.1); /* Zoom in effect on hover */
+    transform: scale(1.1);
+}
+#button-back{
+    display:flex;
+    float: right;
+    
+  margin-left: 5px;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color:#ff369c;
 }
