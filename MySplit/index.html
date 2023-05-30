@@ -43,11 +43,35 @@
             </form>
             
         </div>
-        <div>
-            
-
+    
+        <div id="projekt">
+            <form method="POST" action="php/admin.php">
+                <div>
+                    <table id="email-table">
+                        <tr>
+                            <th>Emails</th>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <input type="email" id="benutzername" name="benutzername" placeholder="E-Mail" required>
+                </div>
+                <div>
+                    <input type="submit" value="Hinzufügen">
+                    <a class="button" id="button-back" name="button-back" onclick="cancel()">Cancel</a>
+                </div>
+            </form>
         </div>
     </div>
-    
+
+    <script>
+        function addEmail() {
+            var email = document.getElementById("benutzername").value;
+            var table = document.getElementById("email-table");
+            var row = table.insertRow(-1);
+            var cell = row.insertCell(0);
+            cell.innerHTML = email;
+        }
+    </script>
 </body>
 </html>

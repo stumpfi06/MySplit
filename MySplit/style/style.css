@@ -120,3 +120,6 @@ input[type="submit"]:hover {
     padding-top: 5%;
     padding-bottom: 4%;
 }
+#projekt{
+    display:none;
+}
