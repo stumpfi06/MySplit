@@ -123,7 +123,7 @@ input[type="submit"]:hover {
     padding-bottom: 4%;
     background-color:#ff369c;
 }
-#tabelle-teilnehmer{
+#neuesProjekt-tabelle{
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
@@ -133,4 +133,57 @@ input[type="submit"]:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 300px;
     width: 100%;
+    display:none;
+}
+#neuesProjekt-form{
+    display:none;
+}
+/* Update form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+input[type="submit"],
+a.button {
+    padding: 10px 20px;
+    background-color: #006bd2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+input[type="submit"]:hover,
+a.button:hover {
+    background-color: #0059a3;
+    transform: scale(1.1);
+}
+
+a.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+#neuesProjekt-tabelle {
+    margin-top: 20px;
+    padding: 20px;
 }

@@ -24,11 +24,31 @@
     <div class="startseite" data-aos="fade-up" data-aos-duration="1500" >
         <img src="../images/logo.jpeg" alt="Logo" class="logo">
         <h1>MySplit</h1>
-     
+        <div id="neuesProjekt-start">
         <form method="POST" >
-            <input type="text" name="email" placeholder="E-Mail" class="projektname">
-            <input type="submit" name="hinzufügen" value="Hinzufügen" class="submit">
-        </form>
+            <div>        
+               <input type="text" name="projektname" placeholder="Projektname" class="projektname">
+            </div>        
+            <div>
+                <input type="text" name="ersteller-email" placeholder="Deine E-Mail" class="ersteller-email">
+            </div>
+            <div>
+                <input type="password" name="ersteller-passwort" placeholder="Dein Passwort" class="ersteller-passwort">
+            </div>
+            <div>
+                <input type="submit" name="weiter" value="weiter" class="submit">
+            </div>
+
+            </form>
+            
+        </div>
+        <div id="neuesProjekt-form">
+            <form method="POST" >
+                <input type="text" name="email" placeholder="E-Mail" class="projektname">
+                <input type="submit" name="hinzufügen" value="Hinzufügen" class="submit">
+                <a class="button" id="button-back" name="button-back" onclick="cancel()">Cancel</a>
+            </form>
+        </div>
     </div>
   
 
@@ -53,7 +73,7 @@ if (isset($_POST['hinzufügen'])) {
 
 
 ?>
-    <div id="tabelle-teilnehmer">
+    <div id="neuesProjekt-tabelle">
         <table>
             <tr>
             <th>Benutzername</th>
