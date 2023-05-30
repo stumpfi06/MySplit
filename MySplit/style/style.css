@@ -134,4 +134,9 @@ input[type="submit"]:hover {
     margin-top:25%;
     margin-left: -22%;
     display:none;
+    align-items: center;
+    
+}
+#h1-projekt-tabelle{
+margin-left:25%;
 }
