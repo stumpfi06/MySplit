@@ -34,7 +34,9 @@ h1 {
     height: 100px;
     margin-bottom: 0px; /* Adjust the margin-bottom as desired */
 }
-
+.rechtsgerueckt {
+    margin-left: 50px;
+  }
 .startseite {
     background-color: #fff;
     padding: 20px;

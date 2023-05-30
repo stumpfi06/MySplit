@@ -12,6 +12,6 @@ function generatePassword() {
     return $password;
 }
 
-echo generatePassword();
+
 
 ?>
