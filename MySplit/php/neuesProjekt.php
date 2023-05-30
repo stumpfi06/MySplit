@@ -53,36 +53,38 @@ if (isset($_POST['hinzufügen'])) {
 
 
 ?>
-<table border="1">
-    <tr>
-      <th>Benutzername</th>
-      
-    </tr>
+    <div id="tabelle-teilnehmer">
+        <table>
+            <tr>
+            <th>Benutzername</th>
+            
+            </tr>
 
-    <?php
-      $benutzerArray = getData();
-    function getData() {
-      
-      
-        $zeilen = file("../daten/benutzer.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($zeilen as $zeile) {
-          $benutzerPasswort = explode(":", $zeile);
-          $benutzername = trim($benutzerPasswort[0]);
-          $passwort = trim($benutzerPasswort[1]);
-      
-          $benutzerArray[$benutzername] = $passwort;
-        }
-      
-        return $benutzerArray;
-      }
-    
-    foreach ($benutzerArray as $benutzername => $passwort): ?>
-        
-      <tr>
-        <td class="rechtsgerueckt"><?php echo $benutzername; ?></td>
-        
-      </tr>
-    <?php endforeach; ?>
-  </table>
+            <?php
+            $benutzerArray = getData();
+            function getData() {
+            
+            
+                $zeilen = file("../daten/benutzer.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                foreach ($zeilen as $zeile) {
+                $benutzerPasswort = explode(":", $zeile);
+                $benutzername = trim($benutzerPasswort[0]);
+                $passwort = trim($benutzerPasswort[1]);
+            
+                $benutzerArray[$benutzername] = $passwort;
+                }
+            
+                return $benutzerArray;
+            }
+            
+            foreach ($benutzerArray as $benutzername => $passwort): ?>
+                
+            <tr>
+                <td class="rechtsgerueckt"><?php echo $benutzername; ?></td>
+                
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
 </body>
 </html>
