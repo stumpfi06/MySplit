@@ -1,8 +1,11 @@
 <?php
+require_once('admin.php');
  $benutzerarray= array();
- require_once('admin.php');
+ $benutzerarray=getData();
+ 
 
 function pruefeAnmeldeinformationen($benutzername, $passwort) {
+  $benutzerarray=getData();
     // Überprüfen, ob der Benutzername im Array vorhanden ist und das Passwort übereinstimmt
     if (isset($benutzerarray[$benutzername]) && $benutzerarray[$benutzername] === $passwort) {
       return true; // Benutzername und Passwort sind korrekt

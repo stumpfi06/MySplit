@@ -55,6 +55,8 @@
 
 <?php
 static $benutzerarray= array();
+static $pfad;
+static $pfad2;
 require_once('admin.php');
 
 function benutzerRegistrieren($benutzername, $passwort) {
@@ -85,7 +87,7 @@ if (isset($_POST['hinzufügen'])) {
             function getData() {
             
             
-                $zeilen = file("../daten/benutzer.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                $zeilen = file("../daten/".$_POST['projektname']."Benutzernamen.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
                 foreach ($zeilen as $zeile) {
                 $benutzerPasswort = explode(":", $zeile);
                 $benutzername = trim($benutzerPasswort[0]);
@@ -96,7 +98,7 @@ if (isset($_POST['hinzufügen'])) {
             
                 return $benutzerArray;
             }
-            
+           
            // foreach ($benutzerArray as $benutzername => $passwort):
             if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $inhalt = $_POST['ersteller-email'].":".$_POST['ersteller-passwort'];
