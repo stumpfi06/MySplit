@@ -87,7 +87,7 @@ if (isset($_POST['hinzufügen'])) {
             function getData() {
             
             
-                $zeilen = file("../daten/".$_POST['projektname']."Benutzernamen.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                $zeilen = file("../daten/Benutzernamen.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
                 foreach ($zeilen as $zeile) {
                 $benutzerPasswort = explode(":", $zeile);
                 $benutzername = trim($benutzerPasswort[0]);
@@ -101,10 +101,10 @@ if (isset($_POST['hinzufügen'])) {
            
            // foreach ($benutzerArray as $benutzername => $passwort):
             if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-                $inhalt = $_POST['ersteller-email'].":".$_POST['ersteller-passwort'];
+                $inhalt = $_POST['ersteller-email'].":".$_POST['ersteller-passwort'].":".$_POST['projektname'].":1";
                 $inhalt2="";
 
-                $pfad = "../daten/".$_POST['projektname']."Benutzernamen.txt";
+                $pfad = "../daten/Benutzernamen.txt";
                 $pfad2 = "../daten/".$_POST['projektname'].".txt";
                 
                 if (file_put_contents($pfad, $inhalt) !== false  && file_put_contents($pfad2,$inhalt2) !== false ) {
