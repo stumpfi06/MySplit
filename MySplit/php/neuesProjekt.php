@@ -84,6 +84,8 @@ if (isset($_POST['hinzufügen'])) {
 
             <?php
             $benutzerArray = getData();
+             $id = array();
+            
             function getData() {
             
             
@@ -92,11 +94,20 @@ if (isset($_POST['hinzufügen'])) {
                 $benutzerPasswort = explode(":", $zeile);
                 $benutzername = trim($benutzerPasswort[0]);
                 $passwort = trim($benutzerPasswort[1]);
+                $id[]=trim($benutzerPasswort[2]);
+                getID($id[]);
             
                 $benutzerArray[$benutzername] = $passwort;
                 }
+                
             
                 return $benutzerArray;
+            }
+            function getID(){ 
+                if(func_num_args()==1){
+                     $id[] = func_get_args(0);
+                }
+                return $id;
             }
            
            // foreach ($benutzerArray as $benutzername => $passwort):
