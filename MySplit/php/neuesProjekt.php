@@ -57,16 +57,17 @@
 static $benutzerarray= array();
 static $pfad;
 static $pfad2;
-require_once('admin.php');
+
 
 function benutzerRegistrieren($benutzername, $passwort) {
-    $daten = $benutzername . ":" . $passwort . "\n";
-    $datei = fopen("../daten/benutzer.txt", "a"); // Öffnet die Datei im "Anhänge"-Modus
+    $daten = $benutzername . ":" . $passwort . ":2\n";
+    $datei = fopen("../daten/Benutzernamen.txt", "a"); // Öffnet die Datei im "Anhänge"-Modus
     fwrite($datei, $daten); // Schreibt die Daten in die Datei
     fclose($datei); // Schließt die Datei
   }
 
 if (isset($_POST['hinzufügen'])) {
+    require_once('admin.php');
     $email = $_POST['email'];
     benutzerRegistrieren($email,generatePassword());
    // header('Location: ../index.html');
@@ -114,12 +115,13 @@ if (isset($_POST['hinzufügen'])) {
             if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $inhalt = $_POST['ersteller-email'].":".$_POST['ersteller-passwort'].":".$_POST['projektname'].":1";
                 $inhalt2="";
+                header('Location: admin.php');
 
                 $pfad = "../daten/Benutzernamen.txt";
                 $pfad2 = "../daten/".$_POST['projektname'].".txt";
                 
                 if (file_put_contents($pfad, $inhalt) !== false  && file_put_contents($pfad2,$inhalt2) !== false ) {
-                    echo "Die Textdatei wurde erfolgreich erstellt.";
+                   // echo "Die Textdatei wurde erfolgreich erstellt.";
                 } else {
                     echo "Es ist ein Fehler beim Erstellen der Textdatei aufgetreten.";
                 }

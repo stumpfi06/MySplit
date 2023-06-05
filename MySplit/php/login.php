@@ -1,5 +1,6 @@
 <?php
 require_once('benutzer.php');
+header('Location: admin.php');
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
@@ -26,7 +27,7 @@ require_once('benutzer.php');
         return $backLink;
     }
 
-    require_once('admin.php');
+   // require_once('admin.php');
     
 
 
