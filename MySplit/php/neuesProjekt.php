@@ -8,7 +8,7 @@
     <!-- AOS JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JavaScript -->
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,12 +49,19 @@
             </form>
         </div>
     </div>
-
     <script>
         function toggleDiv(showDivId1, showDivId2, hideDivId) {
             document.getElementById(showDivId1).style.display = "flex";
             document.getElementById(showDivId2).style.display = "flex";
             document.getElementById(hideDivId).style.display = "none";
+        }
+        function cancel() {
+            var startDiv = document.getElementById("neuesProjekt-start");
+            startDiv.style.display = "flex";
+            var FormDiv = document.getElementById("neuesProjekt-form");
+            FormDiv.style.display = "none";
+            var tabelleDiv = document.getElementById("neuesProjekt-tabelle");
+            tabelleDiv.style.display = "none";
         }
     </script>
 

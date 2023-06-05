@@ -187,3 +187,20 @@ a.button {
     margin-top: 20px;
     padding: 20px;
 }
+#neuesProjekt-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 30vh;
+}
+#neuesProjekt-tabelle, #neuesProjekt-form {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 30vh;
+}
+
