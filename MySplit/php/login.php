@@ -1,6 +1,6 @@
 <?php
 require_once('benutzer.php');
-header('Location: admin.php');
+//header('Location: admin.php');
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
