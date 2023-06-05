@@ -8,7 +8,7 @@
     <!-- AOS JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JavaScript -->
-    <script src="../js/script.js"></script>
+    <script src="js/script.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,23 +25,24 @@
         <img src="../images/logo.jpeg" alt="Logo" class="logo">
         <h1>MySplit</h1>
         <div id="neuesProjekt-start">
-            <form method="POST" onsubmit="toggleDiv('neuesProjekt-form', 'neuesProjekt-tabelle', 'neuesProjekt-start'); return false;">
-                <div>        
-                   <input type="text" name="projektname" placeholder="Projektname" class="projektname">
-                </div>        
-                <div>
-                    <input type="text" name="ersteller-email" placeholder="Deine E-Mail" class="ersteller-email">
-                </div>
-                <div>
-                    <input type="password" name="ersteller-passwort" placeholder="Dein Passwort" class="ersteller-passwort">
-                </div>
-                <div>
-                    <input type="submit" name="weiter" value="weiter" class="submit">
-                </div>
+        <form method="POST" >
+            <div>        
+               <input type="text" name="projektname" placeholder="Projektname" class="projektname">
+            </div>        
+            <div>
+                <input type="text" name="ersteller-email" placeholder="Deine E-Mail" class="ersteller-email">
+            </div>
+            <div>
+                <input type="password" name="ersteller-passwort" placeholder="Dein Passwort" class="ersteller-passwort">
+            </div>
+            <div>
+                <input type="submit" name="weiter" value="weiter" class="submit">
+            </div>
+
             </form>
+            
         </div>
-        <div id="neuesProjekt-form" style="display: none;">
-        <!--onsubmit="toggleDiv('neuesProjekt-form', 'neuesProjekt-tabelle'); return false;"-->
+        <div id="neuesProjekt-form">
             <form method="POST" >
                 <input type="text" name="email" placeholder="E-Mail" class="projektname">
                 <input type="submit" name="hinzufügen" value="Hinzufügen" class="submit">
@@ -49,21 +50,7 @@
             </form>
         </div>
     </div>
-    <script>
-        function toggleDiv(showDivId1, showDivId2, hideDivId) {
-            document.getElementById(showDivId1).style.display = "flex";
-            document.getElementById(showDivId2).style.display = "flex";
-            document.getElementById(hideDivId).style.display = "none";
-        }
-        function cancel() {
-            var startDiv = document.getElementById("neuesProjekt-start");
-            startDiv.style.display = "flex";
-            var FormDiv = document.getElementById("neuesProjekt-form");
-            FormDiv.style.display = "none";
-            var tabelleDiv = document.getElementById("neuesProjekt-tabelle");
-            tabelleDiv.style.display = "none";
-        }
-    </script>
+  
 
 
 <?php
@@ -72,20 +59,33 @@ static $pfad;
 static $pfad2;
 
 
-function benutzerRegistrieren($benutzername, $passwort) {
-    $daten = $benutzername . ":" . $passwort . ":2\n";
+function benutzerRegistrieren($benutzername, $passwort,$id) {
+    $daten = $benutzername . ":" . $passwort . ":".$id."\n";
     $datei = fopen("../daten/Benutzernamen.txt", "a"); // Öffnet die Datei im "Anhänge"-Modus
     fwrite($datei, $daten); // Schreibt die Daten in die Datei
     fclose($datei); // Schließt die Datei
   }
+  require_once('admin.php');
+  function createTextFile($filePath, $fileContent) {
+    $result = file_put_contents($filePath, $fileContent);
 
-if (isset($_POST['hinzufügen'])) {
-    require_once('admin.php');
-    $email = $_POST['email'];
-    benutzerRegistrieren($email,generatePassword());
+    if ($result !== false) {
+        return "Text file created successfully!";
+    } else {
+        return "Error creating the text file.";
+    }
+}
+
+if (isset($_POST['weiter'])) {
+    
+    $email = $_POST['ersteller-email'];
+    $passwort = $_POST['ersteller-passwort'];
+    benutzerRegistrieren($email,$passwort,1);
+    createTextFile("../daten/".$_POST['projektname'].".txt","");
    // header('Location: ../index.html');
     
   }
+
 
 
 ?>
@@ -125,10 +125,10 @@ if (isset($_POST['hinzufügen'])) {
             }
            
            // foreach ($benutzerArray as $benutzername => $passwort):
-            if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+           /* if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $inhalt = $_POST['ersteller-email'].":".$_POST['ersteller-passwort'].":".$_POST['projektname'].":1";
                 $inhalt2="";
-                header('Location: admin.php');
+               
 
                 $pfad = "../daten/Benutzernamen.txt";
                 $pfad2 = "../daten/".$_POST['projektname'].".txt";
@@ -139,7 +139,7 @@ if (isset($_POST['hinzufügen'])) {
                     echo "Es ist ein Fehler beim Erstellen der Textdatei aufgetreten.";
                 }
                 
-            }
+            }*/
            ?>
 
 
