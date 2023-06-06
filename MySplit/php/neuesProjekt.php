@@ -65,7 +65,7 @@ function benutzerRegistrieren($benutzername, $passwort,$id) {
     fwrite($datei, $daten); // Schreibt die Daten in die Datei
     fclose($datei); // Schließt die Datei
   }
-  require_once('admin.php');
+  
   function createTextFile($filePath, $fileContent) {
     $result = file_put_contents($filePath, $fileContent);
 
@@ -74,6 +74,18 @@ function benutzerRegistrieren($benutzername, $passwort,$id) {
     } else {
         return "Error creating the text file.";
     }
+}
+function generatePassword() {
+    $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$123456789';
+    $password = '';
+    
+    $charLength = strlen($characters);
+    for ($i = 0; $i < 8; $i++) {
+        $randomIndex = mt_rand(0, $charLength - 1);
+        $password .= $characters[$randomIndex];
+    }
+    
+    return $password;
 }
 
 if (isset($_POST['weiter'])) {
@@ -100,32 +112,11 @@ if (isset($_POST['weiter'])) {
             $benutzerArray = getData();
              $id = array();
             
-            function getData() {
             
-            
-                $zeilen = file("../daten/Benutzernamen.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-                foreach ($zeilen as $zeile) {
-                $benutzerPasswort = explode(":", $zeile);
-                $benutzername = trim($benutzerPasswort[0]);
-                $passwort = trim($benutzerPasswort[1]);
-                $id[]=trim($benutzerPasswort[2]);
-                getID($id[]);
-            
-                $benutzerArray[$benutzername] = $passwort;
-                }
-                
-            
-                return $benutzerArray;
-            }
-            function getID(){ 
-                if(func_num_args()==1){
-                     $id[] = func_get_args(0);
-                }
-                return $id;
-            }
+           
            
            // foreach ($benutzerArray as $benutzername => $passwort):
-           /* if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $inhalt = $_POST['ersteller-email'].":".$_POST['ersteller-passwort'].":".$_POST['projektname'].":1";
                 $inhalt2="";
                
@@ -139,7 +130,7 @@ if (isset($_POST['weiter'])) {
                     echo "Es ist ein Fehler beim Erstellen der Textdatei aufgetreten.";
                 }
                 
-            }*/
+            }
            ?>
 
 
