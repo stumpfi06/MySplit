@@ -35,6 +35,13 @@
             <div>
                 <input type="password" name="ersteller-passwort" placeholder="Dein Passwort" class="ersteller-passwort">
             </div>
+                <div id="neuesProjekt-form">
+                            <form method="POST" >
+                                <input type="text" name="email" placeholder="E-Mail" class="projektname">
+                                <input type="submit" name="hinzufügen" value="Hinzufügen" class="submit">
+                                </form>
+                        </div>
+
             <div>
                 <input type="submit" name="weiter" value="weiter" class="submit">
             </div>
@@ -42,13 +49,7 @@
             </form>
             
         </div>
-        <div id="neuesProjekt-form">
-            <form method="POST" >
-                <input type="text" name="email" placeholder="E-Mail" class="projektname">
-                <input type="submit" name="hinzufügen" value="Hinzufügen" class="submit">
-                <a class="button" id="button-back" name="button-back" onclick="cancel()">Cancel</a>
-            </form>
-        </div>
+        
     </div>
   
 

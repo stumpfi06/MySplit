@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 hieba@gmx.at:dfas:2:Öch
 sandra.hieber@gmx.at:hallo:1:Öch
 admin@admin.com:hallo:1:Öch
 shieba@gmx.at:dfas:2:Öch
+=======
+hieba@gmx.at:dfas:2
+sandra.hieber@gmx.at:hallo:1
+admin@admin.com:hallo:1
+maxiasd@icloud.com:asd:2
+::1
+::1
+::1
+::1
+::1
+>>>>>>> 60e4f727c11066a55124a0f29fbda93f135ff64c
