@@ -59,8 +59,8 @@ static $pfad;
 static $pfad2;
 
 
-function benutzerRegistrieren($benutzername, $passwort,$id) {
-    $daten = $benutzername . ":" . $passwort . ":".$id."\n";
+function benutzerRegistrieren($benutzername, $passwort,$id,$projectname) {
+    $daten = $benutzername . ":" . $passwort . ":".$id.":".$projectname."\n";
     $datei = fopen("../daten/Benutzernamen.txt", "a"); // Öffnet die Datei im "Anhänge"-Modus
     fwrite($datei, $daten); // Schreibt die Daten in die Datei
     fclose($datei); // Schließt die Datei
@@ -92,7 +92,7 @@ if (isset($_POST['weiter'])) {
     
     $email = $_POST['ersteller-email'];
     $passwort = $_POST['ersteller-passwort'];
-    benutzerRegistrieren($email,$passwort,1);
+    benutzerRegistrieren($email,$passwort,1,$_POST['projektname']);
     createTextFile("../daten/".$_POST['projektname'].".txt","");
    // header('Location: ../index.html');
     

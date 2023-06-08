@@ -14,7 +14,8 @@ $id=array();
         } 
        
     }
-    function getData() {
+    
+   function getData() {
             
             
         $zeilen = file("../daten/Benutzernamen.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -31,12 +32,7 @@ $id=array();
     
         return $benutzerArray;
     }
-    function getID(){ 
-        if(func_num_args()==1){
-             $id[] = func_get_args(0);
-        }
-        return $id;
-    }
+    
     //echo "no";
     function generateBackLink() {
         $backLink = '';
@@ -53,10 +49,11 @@ $id=array();
     if ($file) {
         while (($line = fgets($file)) !== false) {
             $parts = explode(":", $line);
-            if (count($parts) === 3) {
+            if (count($parts) === 4) {
                 $entryEmail = trim($parts[0]);
                 $password = trim($parts[1]);
                 $id = trim($parts[2]);
+                $projectname = trim($parts[3]);
 
                 if ($entryEmail === $email) {
                     fclose($file);
@@ -69,22 +66,53 @@ $id=array();
 
     return null; // Keine ID gefunden
 }
+function getProjectnameByEmail($filename, $email)
+{
+    $file = fopen($filename, "r");
+    if ($file) {
+        while (($line = fgets($file)) !== false) {
+            $parts = explode(":", $line);
+            if (count($parts) === 4) {
+                $entryEmail = trim($parts[0]);
+                $password = trim($parts[1]);
+                $id = trim($parts[2]);
+                $projectname = trim($parts[3]);
 
+                if ($entryEmail === $email) {
+                    fclose($file);
+                    return $projectname;
+                }
+            }
+        }
+        fclose($file);
+    }
+
+    return null; // Keine ID gefunden
+}
     function pruefeAnmeldeinformationen($benutzername, $passwort) {
         $benutzerarray=getData();
           // Überprüfen, ob der Benutzername im Array vorhanden ist und das Passwort übereinstimmt
           if (isset($benutzerarray[$benutzername]) && $benutzerarray[$benutzername] === $passwort) {
+            $project = getProjectnameByEmail("../daten/Benutzernamen.txt", $benutzername);
             $id = getIdByEmail("../daten/Benutzernamen.txt", $benutzername);
-
+           
+            $paramString = http_build_query(array(
+            'var1' => $benutzername,
+            'var2' => $project
+            ));
+            
             if ($id == 1) {
-               header('Location: admin.php');
-                
+              $url = "admin.php?" . $paramString;
+                header("Location: " . $url);
+               echo $benutzername."</br>";
+               echo $project;
             } else if ($id == 2) {
-                header('Location: benutzer.php');
+                $url2 = "benutzer.php?" . $paramString;
+                header("Location: " . $url2);
             }
     }
 }
-   // require_once('admin.php');
+   
     
     
 
