@@ -24,6 +24,20 @@ h1 {
     margin-bottom: 0px; /* Adjust the margin-bottom as desired */
 }
 
+.startseite {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+}
+
+#buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
 
 .button {
     padding: 10px 20px;
@@ -87,6 +101,33 @@ input[type="submit"]:hover {
     background-color: #006bd2;
     transform: scale(1.1);
 }
+
+#button-back {
+    display:flex;
+    float: right;
+    margin-left: 5px;
+    padding-top: 5%;
+    padding-bottom: 4%;
+    background-color: #ff369c;
+}
+
+#neuesProjekt-tabelle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;
+    display: none;
+}
+
+#neuesProjekt-form {
+    display: none;
+}
+
 /* Update form styles */
 form {
     display: flex;
@@ -124,6 +165,35 @@ a.button:hover {
     transform: scale(1.1);
 }
 
+#neuesProjekt-tabelle {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#neuesProjekt-start,
+#neuesProjekt-tabelle,
+#neuesProjekt-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#neuesProjekt-form form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#neuesProjekt-form input[type="text"] {
+    width: 50%; /* Adjust the width as needed */
+}
+
+#neuesProjekt-form input[type="submit"] {
+    width: 48%; /* Adjust the width as needed */
+}
+
 a.button {
     display: flex;
     justify-content: center;
@@ -141,6 +211,11 @@ a.button {
 .button-container input[type="submit"] {
     width: 48%; /* Adjust the width as needed */
 }
-.main-page{
-    
+.main-page {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    width: 100%;        
 }
