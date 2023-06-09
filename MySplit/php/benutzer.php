@@ -10,6 +10,8 @@ $users = getUsersWithIdSameProject($var2, "../daten/Benutzernamen.txt");
 foreach ($users as $user) {
   echo "Name: " . $user['name'] . "<br>";
 }
+Geldbetrag($_GET['var1'],"sandra.hieber@gmx.at",$_GET['var2'],200);
+
 
 function getUsersWithIdSameProject($project, $filePath)
 {
@@ -39,4 +41,12 @@ function getUsersWithIdSameProject($project, $filePath)
 
   return $users;
 }
+function Geldbetrag($from, $to, $project, $sum) {
+  // Textzeile erstellen
+  $line = $from . ':' . $to . ':' . $project. ':' . $sum . PHP_EOL;
+
+  // Zeile in die Datei schreiben
+  file_put_contents("../daten/".$_GET['var2'].".txt", $line, FILE_APPEND);
+}
+
 ?>

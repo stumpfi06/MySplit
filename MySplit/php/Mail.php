@@ -1,31 +1,15 @@
 <?php
 
-use LDAP\Result;
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registrieren'])){
-    require_once('admin.php');
-    $passwort=generatePassword();
-    appendCredentialsToFile($_POST['registrieren'],$passwort);
-    sendEmail($_POST['registrieren'],$passwort);
-
-  
-    
-
-
-    
-}
-function appendCredentialsToFile($username,$passwort) {
-    // Formatieren der Daten als Zeichenkette
-    $credentials = $username . ':' . $passwort . ':' . '1' . "\n";
-    
-    // Anhängen der Daten an die Textdatei
-    file_put_contents("../daten/Benutzernamen.txt", $credentials, FILE_APPEND);
-}
 function sendEmail($to, $passwort) {
+    $config = readConfigFile("../daten/Text.conf");
+
+    $firstLine = $config['firstLine'];
+    $remainingText = $config['remainingText'];
+
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-    $subject="MySplit Registration";
-    $message="Du bist registriert!\n Dein Benutzername: ".$to."\n Dein Passwort: ".$passwort;
+    $subject=$firstLine;
+    $message=$remainingText."\n". "Dein Benutzername: ".$to."\n Dein Passwort: ".$passwort."\n Der Link: http://127.0.0.1/MySplit/MySplit/";
     
     // E-Mail versenden
     $result = mail($to, $subject, $message, $headers);
@@ -36,6 +20,39 @@ function sendEmail($to, $passwort) {
         return false;
     }
 }
+function readConfigFile($filePath) {
+    $configData = array(
+        'firstLine' => '',
+        'remainingText' => ''
+    );
+
+    if (file_exists($filePath)) {
+        $fileHandle = fopen($filePath, 'r');
+
+        if ($fileHandle) {
+            // Erste Zeile auslesen und in 'firstLine' speichern
+            $firstLine = fgets($fileHandle);
+            $configData['firstLine'] = $firstLine;
+
+            // Restlichen Text in 'remainingText' speichern
+            $remainingText = '';
+            while (!feof($fileHandle)) {
+                $line = fgets($fileHandle);
+                $remainingText .= $line;
+            }
+            $configData['remainingText'] = $remainingText;
+
+            fclose($fileHandle);
+        } else {
+            echo "Fehler beim Öffnen der Datei.";
+        }
+    } else {
+        echo "Die Datei wurde nicht gefunden.";
+    }
+
+    return $configData;
+}
+
 
 
 

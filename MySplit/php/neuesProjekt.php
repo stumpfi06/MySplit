@@ -95,7 +95,16 @@ if (isset($_POST['weiter'])) {
     $passwort = $_POST['ersteller-passwort'];
     benutzerRegistrieren($email,$passwort,1,$_POST['projektname']);
     createTextFile("../daten/".$_POST['projektname'].".txt","");
-   // header('Location: ../index.html');
+    
+  }
+  if (isset($_POST['hinzufügen'])) {
+    require_once('Mail.php');
+    
+    $email = $_POST['benutzer-mail'];
+    $passwort = generatePassword();
+    benutzerRegistrieren($email,$passwort,2,$_POST['projektname']);
+    sendEmail($email,$passwort);
+  
     
   }
 
