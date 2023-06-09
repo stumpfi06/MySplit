@@ -89,7 +89,7 @@ function generatePassword() {
     return $password;
 }
 
-if (isset($_POST['weiter'])) {
+if (isset($_POST['weiterr'])) {
     
     $email = $_POST['ersteller-email'];
     $passwort = $_POST['ersteller-passwort'];
@@ -99,13 +99,17 @@ if (isset($_POST['weiter'])) {
   }
   if (isset($_POST['hinzufügen'])) {
     require_once('Mail.php');
-    
-    $email = $_POST['benutzer-mail'];
+    $email = $_POST['email'];
     $passwort = generatePassword();
     benutzerRegistrieren($email,$passwort,2,$_POST['projektname']);
     sendEmail($email,$passwort);
-  
-    
+  }
+  if (isset($_POST['weiter'])) {
+    require_once('Mail.php');
+    $email = $_POST['ersteller-email'];
+    $passwort = generatePassword();
+    benutzerRegistrieren($email,$passwort,2,$_POST['projektname']);
+    sendEmail($email,$passwort);
   }
 
 
@@ -119,7 +123,7 @@ if (isset($_POST['weiter'])) {
             </tr>
 
             <?php
-            $benutzerArray = getData();
+         //   $benutzerArray = getData();
              $id = array();
             
             
@@ -146,7 +150,7 @@ if (isset($_POST['weiter'])) {
 
                 
             <tr>
-                <td class="rechtsgerueckt"><?php echo $benutzername; ?></td>
+                <td class="rechtsgerueckt"><?php echo "nix"; ?></td>
                 
             </tr>
           

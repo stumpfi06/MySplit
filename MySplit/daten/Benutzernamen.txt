@@ -1,4 +1,1 @@
-hieba@gmx.at:dfas:2:Öch
-sandra.hieber@gmx.at:hallo:1:Öch
-admin@admin.com:hallo:1:Öch
-shieba@gmx.at:dfas:2:Öech
+christoph.hieber@gmx.at:hieba:Kino:1

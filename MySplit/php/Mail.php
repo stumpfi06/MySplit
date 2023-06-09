@@ -1,12 +1,16 @@
 <?php
 
 function sendEmail($to, $passwort) {
+    ini_set('SMTP','192.168.0.125');
+    ini_set('smtp_port', 587);
     $config = readConfigFile("../daten/Text.conf");
 
     $firstLine = $config['firstLine'];
     $remainingText = $config['remainingText'];
+    $from = "example@example.com"; // Ihre Absender-E-Mail-Adresse
 
-    $headers = "MIME-Version: 1.0\r\n";
+    $headers = "From: " . $from . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8\r\n";
     $subject=$firstLine;
     $message=$remainingText."\n". "Dein Benutzername: ".$to."\n Dein Passwort: ".$passwort."\n Der Link: http://127.0.0.1/MySplit/MySplit/";
