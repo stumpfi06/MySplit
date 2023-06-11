@@ -1,5 +1,5 @@
 <?php
-require_once('benutzer.php');
+//require_once('benutzer.php');
 //header('Location: admin.php');
 $id = array();
 
@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['benutzername']) && isset($_POST['passwort'])) {
         $name = $_POST['benutzername'];
         $password = $_POST['passwort'];
+        
         pruefeAnmeldeinformationen($name, $password);
     }
 }
@@ -96,6 +97,8 @@ function pruefeAnmeldeinformationen($benutzername, $passwort)
     if (isset($benutzerarray[$benutzername]) && $benutzerarray[$benutzername] === $passwort) {
         $project = getProjectnameByEmail("../daten/Benutzernamen.txt", $benutzername);
         $id = getIdByEmail("../daten/Benutzernamen.txt", $benutzername);
+        echo $benutzername . "</br>";
+        echo $project;
 
         $paramString = http_build_query(array(
             'var1' => $benutzername,
@@ -105,8 +108,7 @@ function pruefeAnmeldeinformationen($benutzername, $passwort)
         if ($id == 1) {
             $url = "admin.php?" . $paramString;
             header("Location: " . $url);
-            echo $benutzername . "</br>";
-            echo $project;
+         
         } else if ($id == 2) {
             $url2 = "benutzer.php?" . $paramString;
             header("Location: " . $url2);

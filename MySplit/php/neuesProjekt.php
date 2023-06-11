@@ -57,12 +57,23 @@ static $pfad;
 static $pfad2;
 
 
-function benutzerRegistrieren($benutzername, $passwort,$id,$projectname) {
-    $daten = $benutzername . ":" . $passwort . ":".$id.":".$projectname."\n";
-    $datei = fopen("../daten/Benutzernamen.txt", "a"); // Öffnet die Datei im "Anhänge"-Modus
-    fwrite($datei, $daten); // Schreibt die Daten in die Datei
+/*function benutzerRegistrieren($benutzername, $passwort, $id, $projectname) {
+    $daten = $benutzername . ":" . $passwort . ":" . $id . ":" . $projectname . "\n";
+    $datei = fopen("../daten/Benutzernamen.txt", "a+"); // Öffnet die Datei im "Anhänge"-Modus
+    fwrite($datei, $daten); // Schreibt die Daten ans Ende der Datei
     fclose($datei); // Schließt die Datei
-  }
+}*/
+function benutzerRegistrieren($benutzername, $passwort, $id, $projectname) {
+    $daten = $benutzername . ":" . $passwort . ":" . $id . ":" . $projectname . "\n";
+    $datei = "../daten/Benutzernamen.txt";
+
+    $dateiHandle = fopen($datei, "a"); // Öffnet die Datei im Anhängen-Modus
+    fwrite($dateiHandle, $daten); // Schreibt die Daten in die Datei
+    fclose($dateiHandle); // Schließt die Datei
+}
+
+
+
   
   function createTextFile($filePath, $fileContent) {
     $result = file_put_contents($filePath, $fileContent);
@@ -86,28 +97,34 @@ function generatePassword() {
     return $password;
 }
 
-if (isset($_POST['weiterr'])) {
+/*if (isset($_POST['weiter'])) {
     
     $email = $_POST['ersteller-email'];
     $passwort = $_POST['ersteller-passwort'];
     benutzerRegistrieren($email,$passwort,1,$_POST['projektname']);
     createTextFile("../daten/".$_POST['projektname'].".txt","");
     
-  }
+  }*/
   if (isset($_POST['hinzufügen'])) {
     require_once('Mail.php');
-    $email = $_POST['email'];
-    $passwort = generatePassword();
-    benutzerRegistrieren($email,$passwort,2,$_POST['projektname']);
-    sendEmail($email,$passwort);
+    $email = $_POST['ersteller-email'];
+    $passwort = $_POST['ersteller-passwort'];
+   
+    createTextFile("../daten/".$_POST['projektname'].".txt","");
+    $email1 = $_POST['email'];
+    $passwort1 = generatePassword();
+    echo $email1.$passwort1;
+   benutzerRegistrieren($email,$passwort,1,$_POST['projektname']);
+    benutzerRegistrieren($email1,$passwort1,2,$_POST['projektname']);
+   // sendEmail($email,$passwort);
   }
-  if (isset($_POST['weiter'])) {
+/*  if (isset($_POST['weiter'])) {
     require_once('Mail.php');
     $email = $_POST['ersteller-email'];
     $passwort = generatePassword();
     benutzerRegistrieren($email,$passwort,2,$_POST['projektname']);
-    sendEmail($email,$passwort);
-  }
+    //sendEmail($email,$passwort);
+  }*/
 
 
 
@@ -127,7 +144,7 @@ if (isset($_POST['weiterr'])) {
            
            
            // foreach ($benutzerArray as $benutzername => $passwort):
-            if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+          /*  if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $inhalt = $_POST['ersteller-email'].":".$_POST['ersteller-passwort'].":".$_POST['projektname'].":1";
                 $inhalt2="";
                
@@ -141,7 +158,7 @@ if (isset($_POST['weiterr'])) {
                     echo "Es ist ein Fehler beim Erstellen der Textdatei aufgetreten.";
                 }
                 
-            }
+            }*/
            ?>
 
 
