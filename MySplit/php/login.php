@@ -4,15 +4,43 @@
 $id = array();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+    $name = $_POST['benutzername'];
+    $password = $_POST['passwort'];
     // Überprüfen, ob der Name und das Passwort gesendet wurden
-    if (isset($_POST['benutzername']) && isset($_POST['passwort'])) {
-        $name = $_POST['benutzername'];
-        $password = $_POST['passwort'];
+    if (isset($_POST['benutzername']) && isset($_POST['passwort']) && countTeilnehmer(getProjectnameByEmail("../daten/Benutzernamen.txt", $name))>=2) {
+       
         
         pruefeAnmeldeinformationen($name, $password);
     }
+    else{
+        echo "Fehler beim erstellen des Projektes";
+    }
 }
+function countTeilnehmer($projectname) {
+    $datei = "../daten/Benutzernamen.txt";
+    $teilnehmer = 0;
+
+    $dateiHandle = fopen($datei, "r"); // Öffnet die Datei im Lesemodus
+
+    // Durchgehen der Datei Zeile für Zeile
+    while (($zeile = fgets($dateiHandle)) !== false) {
+        // Aufteilen der Zeile in separate Werte
+        $werte = explode(":", $zeile);
+
+        $projektname = trim($werte[3]);
+        $id = trim($werte[2]);
+
+        // Überprüfen, ob der Projektname übereinstimmt und die ID 2 ist
+        if ($projektname === $projectname && $id === "2") {
+            $teilnehmer++;
+        }
+    }
+
+    fclose($dateiHandle); // Schließt die Datei
+
+    return $teilnehmer;
+}
+
 
 function getData()
 {
@@ -97,8 +125,8 @@ function pruefeAnmeldeinformationen($benutzername, $passwort)
     if (isset($benutzerarray[$benutzername]) && $benutzerarray[$benutzername] === $passwort) {
         $project = getProjectnameByEmail("../daten/Benutzernamen.txt", $benutzername);
         $id = getIdByEmail("../daten/Benutzernamen.txt", $benutzername);
-        echo $benutzername . "</br>";
-        echo $project;
+        //echo $benutzername . "</br>";
+        //echo $project;
 
         $paramString = http_build_query(array(
             'var1' => $benutzername,
@@ -113,5 +141,8 @@ function pruefeAnmeldeinformationen($benutzername, $passwort)
             $url2 = "benutzer.php?" . $paramString;
             header("Location: " . $url2);
         }
+    }
+    else{
+        echo "Falsche Anmeldedaten";
     }
 }
