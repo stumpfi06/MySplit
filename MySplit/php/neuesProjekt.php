@@ -25,27 +25,18 @@
         <img src="../images/logo.jpeg" alt="Logo" class="logo">
         <h1>MySplit</h1>
         <div id="neuesProjekt-start">
-            <form method="POST" >
-                <div>        
-                <input type="text" name="projektname" placeholder="Projektname" class="projektname">
-                </div>        
-                <div>
-                    <input type="text" name="ersteller-email" placeholder="Deine E-Mail" class="ersteller-email">
-                </div>
-                <div>
-                    <input type="password" name="ersteller-passwort" placeholder="Dein Passwort" class="ersteller-passwort">
-                </div>
-                <div id="neuesProjekt-form">
-                    <form method="POST">
-                        <input type="text" name="email" placeholder="E-Mail" class="projektname">
-                        <div class="button-container">
-                            <input type="submit" name="hinzufügen" value="Hinzufügen" class="submit">
-                            <input type="submit" name="erstellen" value="Fertig" class="submit">
-                        </div>
-                    </form>
-                </div>
-                    </form>
+            <div id="neuesProjekt-form">
+                <form method="POST">
+                    <input type="text" name="email" placeholder="E-Mail" class="projektname">
+                    <div class="button-container">
+                        <input type="submit" name="hinzufügen" value="Hinzufügen" class="submit">
+                    
+                    </div>
+                </form>
+            </div>
         </div>
+        
+    </div>
         
     </div>
   
