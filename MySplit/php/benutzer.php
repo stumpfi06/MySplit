@@ -24,8 +24,8 @@ function getUsersWithIdSameProject($project, $filePath)
       // Zeile in ein Array aufteilen
       $userInfo = explode(":", $line);
 
-      // Überprüfen, ob das Projekt übereinstimmt und die ID 2 ist
-      if (trim($userInfo[3]) === $project && trim($userInfo[2]) === "2") {
+      // Überprüfen, ob das Array genügend Elemente hat und das Projekt übereinstimmt und die ID 2 ist
+      if (count($userInfo) >= 4 && trim($userInfo[3]) === $project && trim($userInfo[2]) === "2" && trim($userInfo[0])!=$_GET['var1']) {
         // Benutzer zum Ergebnis-Array hinzufügen
         $user = array(
           'name' => trim($userInfo[0]),
@@ -41,6 +41,7 @@ function getUsersWithIdSameProject($project, $filePath)
 
   return $users;
 }
+
 function Geldbetrag($from, $to, $project, $sum) {
   // Textzeile erstellen
   $line = $from . ':' . $to . ':' . $project. ':' . $sum . PHP_EOL;

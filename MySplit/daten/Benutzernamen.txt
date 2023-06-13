@@ -2,3 +2,5 @@ christoph.hieber@gmx.at:iIP3lNK9:2:Kino
 hieba@gmx.at:asdf:1:Tennis
 maxiasd@icloud.com:UKccjvpV:2:Tennis
 sandra.hieber@gmx.at:hallo:2:Tennis
+christoph.hieber@sz-ybbs.ac.at:hieba:1:Hockey
+
