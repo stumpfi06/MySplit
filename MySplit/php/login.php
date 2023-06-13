@@ -26,12 +26,14 @@ function countTeilnehmer($projectname) {
     while (($zeile = fgets($dateiHandle)) !== false) {
         // Aufteilen der Zeile in separate Werte
         $werte = explode(":", $zeile);
-
-        $projektname = trim($werte[3]);
-        $id = trim($werte[2]);
+        if(count($werte) >= 4){
+            $projektname = trim($werte[3]);
+            $id = trim($werte[2]);
+        }
+       
 
         // Überprüfen, ob der Projektname übereinstimmt und die ID 2 ist
-        if ($projektname === $projectname && $id === "2") {
+        if ( $projektname === $projectname && $id === "2") {
             $teilnehmer++;
         }
     }
