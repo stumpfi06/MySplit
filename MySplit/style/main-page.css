@@ -1,221 +1,64 @@
-/* main-page.css */
-
 body {
-    background-color: #f2f2f2;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
-}
-
-h1 {
+    padding: 20px;
+  }
+  
+  h1 {
     text-align: center;
-    color: #333;
-    margin-top: -10px;
-}
-
-.logo {
+  }
+  
+  form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+  }
+  
+  label {
     display: block;
-    margin: 0 auto;
-    width: 100px;
-    height: 100px;
-    margin-bottom: 0px; /* Adjust the margin-bottom as desired */
-}
-
-.startseite {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    width: 100%;
-}
-
-#buttons-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.button {
-    padding: 10px 20px;
-    background-color: #f4a246;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.3s;
-}
-
-.button:hover {
-    background-color: #006bd2;
-    transform: scale(1.1);
-}
-
-#anmelden {
-    max-width: 300px;
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-label {
-    font-weight: bold;
     margin-bottom: 5px;
-    color: #333;
-    text-align: center;
-}
-
-input[type="email"],
-input[type="password"] {
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    text-align: center;
-}
-
-input[type="submit"] {
-    padding: 10px 20px;
-    background-color: #006bd2;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 0px;
-    transition: transform 0.3s;
-    float: left;
-}
-
-input[type="submit"]:hover {
-    background-color: #006bd2;
-    transform: scale(1.1);
-}
-
-#button-back {
-    display:flex;
-    float: right;
-    margin-left: 5px;
-    padding-top: 5%;
-    padding-bottom: 4%;
-    background-color: #ff369c;
-}
-
-#neuesProjekt-tabelle {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
+  }
+  
+  input[type="number"],
+  input[type="date"] {
     width: 100%;
-    display: none;
-}
-
-#neuesProjekt-form {
-    display: none;
-}
-
-/* Update form styles */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%;
     box-sizing: border-box;
-    text-align: center;
-}
-
-input[type="submit"],
-a.button {
-    padding: 10px 20px;
-    background-color: #006bd2;
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: transform 0.3s;
-}
-
-input[type="submit"]:hover,
-a.button:hover {
-    background-color: #0059a3;
-    transform: scale(1.1);
-}
-
-#neuesProjekt-tabelle {
-    margin-top: 20px;
-    padding: 20px;
-}
-
-#neuesProjekt-start,
-#neuesProjekt-tabelle,
-#neuesProjekt-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-#neuesProjekt-form form {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-#neuesProjekt-form input[type="text"] {
-    width: 50%; /* Adjust the width as needed */
-}
-
-#neuesProjekt-form input[type="submit"] {
-    width: 48%; /* Adjust the width as needed */
-}
-
-a.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 16px;
+  }
+  
+  /* Teilnehmerliste */
+  #participants {
+    margin-bottom: 10px;
+  }
+  
+  #participants label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Erfolgsmeldung */
+  .success-message {
     margin-top: 10px;
-    text-decoration: none;
-}
-
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.button-container input[type="submit"] {
-    width: 48%; /* Adjust the width as needed */
-}
-.main-page {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    width: 100%;        
-}
+    color: #4CAF50;
+  }

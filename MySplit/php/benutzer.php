@@ -51,3 +51,30 @@ function Geldbetrag($from, $to, $project, $sum) {
 }
 
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mySplit - Split Tool</title>
+  <link rel="stylesheet" type="text/css" href="../style/main-page.css ">
+</head>
+<body>
+  <h1>mySplit - Split Tool</h1>
+  
+  <form id="splitForm">
+    <label for="amount">Betrag:</label>
+    <input type="number" id="amount" name="amount" required>
+    
+    <label for="date">Datum:</label>
+    <input type="date" id="date" name="date" required>
+    
+    <h2>Teilnehmer:</h2>
+    <div id="participants">
+      <!-- Dynamisch generierte Teilnehmerliste wird hier eingefügt 
+            Hieba-->
+    </div>
+    
+    <button type="submit">Aufteilen</button>
+  </form>
+
+</body>
+</html>
